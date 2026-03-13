@@ -159,14 +159,17 @@
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Math.double3.cpp" />
-    <ClCompile Include="Math.double4x4.cpp" />
-    <ClCompile Include="Math.float3.cpp" />
-    <ClCompile Include="Math.float4.cpp" />
-    <ClCompile Include="Math.float4x4.cpp" />
+    <ClCompile Include="Math.Vec3d.cpp" />
+    <ClCompile Include="Math.Matrix.cpp" />
+    <ClCompile Include="Math.Vec3f.cpp" />
+    <ClCompile Include="Math.Color.cpp" />
+    <ClCompile Include="Math.Matrix_f.cpp" />
     <ClCompile Include="Math.Quaternion.cpp" />
-    <ClCompile Include="Math.Trans.cpp" />
+    <ClCompile Include="Math.Transformation.cpp" />
+    <ClCompile Include="Math.Vec2i.cpp" />
+    <ClCompile Include="Math.Vec3i.cpp" />
     <ClCompile Include="OpenGL\glad.c" />
+    <ClCompile Include="Violet.Camera.cpp" />
     <ClCompile Include="Violet.Mesh.cpp" />
     <ClCompile Include="Violet.Window.cpp" />
   </ItemGroup>

@@ -1,31 +1,31 @@
 
 #include "Math.h"
 
-Math::Quat::Quat() {
+Math::Quaternion::Quaternion() {
 	w = 1.0;
 	x = 0.0;
 	y = 0.0;
 	z = 0.0;
 }
 
-Math::Quat::Quat(double _w, double _x, double _y, double _z) {
-	w = _w;
-	x = _x;
-	y = _y;
-	z = _z;
+Math::Quaternion::Quaternion(double w, double x, double y, double z) {
+	this->w = w;
+	this->x = x;
+	this->y = y;
+	this->z = z;
 }
 
-Math::Quat::Quat(const double3& _axis, double theta) {
-	double3 axis = _axis.normalized();
+Math::Quaternion::Quaternion(const Vec3d& axis, double theta) {
+	Vec3d axis_n = axis.normalized();
 	double half = theta * 0.5;
 	double s = sin(half);
 	w = cos(half);
-	x = s * axis.x;
-	y = s * axis.y;
-	z = s * axis.z;
+	x = s * axis_n.x;
+	y = s * axis_n.y;
+	z = s * axis_n.z;
 }
 
-Math::Quat Math::Quat::normalized() const {
+Math::Quaternion Math::Quaternion::normalized() const {
 	double len = sqrt((w * w) + (x * x) + (y * y) + (z * z));
 	return {
 		w / len,
@@ -35,7 +35,7 @@ Math::Quat Math::Quat::normalized() const {
 	};
 }
 
-Math::Quat Math::Quat::complexConjugate() const {
+Math::Quaternion Math::Quaternion::complexConjugate() const {
 	return {
 		w,
 	   -x,
@@ -44,7 +44,7 @@ Math::Quat Math::Quat::complexConjugate() const {
 	};
 }
 
-Math::Quat Math::Quat::operator * (const Quat& q) const {
+Math::Quaternion Math::Quaternion::operator * (const Quaternion& q) const {
 	return {
 		(w * q.w) - (x * q.x) - (y * q.y) - (z * q.z),
 		(w * q.x) + (x * q.w) + (y * q.z) - (z * q.y),

@@ -1,7 +1,7 @@
 
 #include "Math.h"
 
-Math::double4x4::double4x4(
+Math::Matrix::Matrix(
 	double a, double b, double c, double d,
 	double e, double f, double g, double h,
 	double i, double j, double k, double l,
@@ -13,8 +13,8 @@ Math::double4x4::double4x4(
 	data[3][0] = m; data[3][1] = n; data[3][2] = o; data[3][3] = p;
 }
 
-Math::double4x4::double4x4() {
-	(*this) = double4x4 {
+Math::Matrix::Matrix() {
+	(*this) = Matrix{
 		1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
@@ -22,9 +22,9 @@ Math::double4x4::double4x4() {
 	};
 }
 
-Math::double4x4::double4x4(double scale) {
+Math::Matrix::Matrix(double scale) {
 	const double s = scale;
-	(*this) = double4x4 {
+	(*this) = Matrix{
 		s, 0, 0, 0,
 		0, s, 0, 0,
 		0, 0, s, 0,
@@ -32,11 +32,11 @@ Math::double4x4::double4x4(double scale) {
 	};
 }
 
-Math::double4x4::double4x4(const double3& position) {
+Math::Matrix::Matrix(const Vec3d& position) {
 	const double x = position.x;
 	const double y = position.y;
 	const double z = position.z;
-	(*this) = double4x4 {
+	(*this) = Matrix{
 		1, 0, 0, x,
 		0, 1, 0, y,
 		0, 0, 1, z,
@@ -44,8 +44,8 @@ Math::double4x4::double4x4(const double3& position) {
 	};
 }
 
-Math::double4x4::double4x4(const Quat& rotation) {
-	Quat rot = rotation.normalized();
+Math::Matrix::Matrix(const Quaternion& rotation) {
+	Quaternion rot = rotation.normalized();
 	double xw = rot.x * rot.w;
 	double xx = rot.x * rot.x;
 	double xy = rot.x * rot.y;
@@ -63,8 +63,8 @@ Math::double4x4::double4x4(const Quat& rotation) {
 	};
 }
 
-Math::double4x4 Math::double4x4::operator * (const double4x4& matrix) const {
-	double4x4 result;
+Math::Matrix Math::Matrix::operator * (const Matrix& matrix) const {
+	Matrix result;
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; j++) {
 			double sum = 0.0;

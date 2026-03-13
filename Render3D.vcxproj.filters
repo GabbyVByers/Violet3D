@@ -13,6 +13,9 @@
     <Filter Include="Render3D\Violet">
       <UniqueIdentifier>{036266f1-2ff7-43d8-882e-36846dba9356}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Render3D\Shaders">
+      <UniqueIdentifier>{1f78c8c2-bd11-4fe3-a4ac-f22616396c0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -45,29 +48,38 @@
     <ClCompile Include="main.cpp">
       <Filter>Render3D</Filter>
     </ClCompile>
-    <ClCompile Include="Math.double3.cpp">
+    <ClCompile Include="Math.Vec3d.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math.float4.cpp">
+    <ClCompile Include="Math.Color.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
     <ClCompile Include="Math.Quaternion.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math.float3.cpp">
+    <ClCompile Include="Math.Vec3f.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math.float4x4.cpp">
+    <ClCompile Include="Math.Matrix_f.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math.double4x4.cpp">
+    <ClCompile Include="Math.Matrix.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math.Trans.cpp">
+    <ClCompile Include="Math.Transformation.cpp">
       <Filter>Render3D\Math</Filter>
     </ClCompile>
     <ClCompile Include="Violet.Mesh.cpp">
       <Filter>Render3D\Violet</Filter>
+    </ClCompile>
+    <ClCompile Include="Violet.Camera.cpp">
+      <Filter>Render3D\Violet</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.Vec3i.cpp">
+      <Filter>Render3D\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.Vec2i.cpp">
+      <Filter>Render3D\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

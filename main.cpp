@@ -9,6 +9,8 @@ int main() {
 
 	while (Violet::Window::isOpen()) {
 		Violet::Window::pollEvents();
+		Violet::Window::clear(Math::Color(0.2, 0.2, 0.4));
+		Violet::Window::display();
 	}
 
 	Violet::Window::destroy();

@@ -1,7 +1,7 @@
 
 #include "Math.h"
 
-Math::float4x4::float4x4() {
+Math::Matrix_f::Matrix_f() {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; i++) {
 			data[i][j] = 0.0f;
@@ -10,7 +10,7 @@ Math::float4x4::float4x4() {
 	}
 }
 
-Math::float4x4::float4x4(const double4x4& matrix) {
+Math::Matrix_f::Matrix_f(const Matrix& matrix) {
 	for (size_t i = 0; i < 4; i++) {
 		for (size_t j = 0; j < 4; i++) {
 			data[i][j] = (float)matrix.data[i][j];
