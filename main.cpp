@@ -3,17 +3,17 @@
 #define Vi Violet
 
 static void controlCamera(Vi::Camera& camera) {
-
+	constexpr double speed = 0.001;
 	Vi::Mouse& mouse = Vi::Mouse::getMouse();
 
 	if (mouse.pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		Vi::Vec3d up = Vi::Vec3d(0.0, 1.0, 0.0);
-		Vi::Quaternion rot = Vi::Quaternion::buildRotationQuaternion(up, mouse.velocity().x);
+		Vi::Quaternion rot = Vi::Quaternion::buildRotationQuaternion(up, (double)mouse.velocity().x * speed);
 		camera.orientation = rot * camera.orientation;
 	}
 
 
-	camera.position = camera.forwardDirection() * -1.0;
+	camera.position = camera.forwardDirection() * 2.0;
 }
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
 	Vi::Camera camera;
 	Vi::Mesh mesh;
 	mesh.sphere(1.0, 10);
-	mesh.position.z -= 3.0;
+	//mesh.position.z -= 3.0;
 
 
 
@@ -70,6 +70,7 @@ int main() {
 			std::cout << "A Button Being Held Down\n";
 
 		window.clear(Violet::Color(0.2, 0.2, 0.4));
+		controlCamera(camera);
 		window.draw(mesh, camera);
 		window.display();
 	}
