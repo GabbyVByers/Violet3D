@@ -9,7 +9,7 @@ static void controlCamera(Vi::Camera& camera) {
 	if (mouse.pressing(GLFW_MOUSE_BUTTON_LEFT)) {
 		Vi::Vec3d up = Vi::Vec3d(0.0, 1.0, 0.0);
 		Vi::Quaternion rot = Vi::Quaternion::buildRotationQuaternion(up, mouse.velocity().x);
-		camera.orientation = camera.orientation * rot;
+		camera.orientation = rot * camera.orientation;
 	}
 
 
