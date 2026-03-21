@@ -1,6 +1,5 @@
 
 #pragma once
-#include "Core.h"
 
 namespace Violet {
 	class Vec2i {
@@ -53,6 +52,11 @@ namespace Violet {
 		int x, y, z;
 		Vec3i();
 		Vec3i(int x, int y, int z);
+
+		Vec3i& operator = (const Vec3i& vec);
+		Vec3i& operator = (const Vec3f& vec);
+		Vec3i& operator = (const Vec3d& vec);
+
 		Vec3i operator +  (const Vec3i& vec) const;
 		Vec3i operator -  (const Vec3i& vec) const;
 		Vec3i operator *  (const int scale)  const;
@@ -68,7 +72,11 @@ namespace Violet {
 		float x, y, z;
 		Vec3f();
 		Vec3f(float x, float y, float z);
-		Vec3f(const Vec3d& vec);
+
+		Vec3f& operator = (const Vec3i& vec);
+		Vec3f& operator = (const Vec3f& vec);
+		Vec3f& operator = (const Vec3d& vec);
+
 		Vec3f operator +  (const Vec3f& vec)  const;
 		Vec3f operator -  (const Vec3f& vec)  const;
 		Vec3f operator *  (const float scale) const;
@@ -84,6 +92,8 @@ namespace Violet {
 		double x, y, z;
 		Vec3d();
 		Vec3d(double x, double y, double z);
+
+		/*
 		void normalize();
 		void rotate(const Vec3d& axis, double theta);
 		void rotate(const Quaternion& quat);
@@ -91,6 +101,12 @@ namespace Violet {
 		static double length(const Vec3d& vec);
 		static double dot(const Vec3d& a, const Vec3d& b);
 		static Vec3d cross(const Vec3d& a, const Vec3d& b);
+		*/
+
+		Vec3d& operator = (const Vec3i& vec);
+		Vec3d& operator = (const Vec3f& vec);
+		Vec3d& operator = (const Vec3d& vec);
+
 		Vec3d operator +  (const Vec3d& vec)   const;
 		Vec3d operator -  (const Vec3d& vec)   const;
 		Vec3d operator *  (const double scale) const;

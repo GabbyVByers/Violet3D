@@ -7,7 +7,6 @@
 #include <GLFW/glfw3.h>
 #include <string>
 #include <vector>
-#include "Core.h"
 #include "Vector.h"
 
 namespace Violet {

@@ -16,9 +16,6 @@
     <Filter Include="Render3D\Source Files">
       <UniqueIdentifier>{bd3632e3-ff54-4eae-a2c7-d0608094c633}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Render3D\Header Files\Core">
-      <UniqueIdentifier>{557a7de3-e9a8-413a-a2fd-c269fb690348}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL\glad.c">
@@ -150,10 +147,10 @@
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Violet.h">
-      <Filter>Render3D\Header Files\Core</Filter>
+      <Filter>Render3D\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
-      <Filter>Render3D\Header Files\Core</Filter>
+    <ClInclude Include="Math.h">
+      <Filter>Render3D\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

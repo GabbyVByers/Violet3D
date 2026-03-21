@@ -1,6 +1,7 @@
 
 #pragma once
 #include "Core.h"
+#include "Mesh.h"
 #include <cmath>
 
 namespace Violet {

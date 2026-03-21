@@ -1,18 +1,10 @@
 
 #include "Vector.h"
 
-Violet::Vec3d::Vec3d() {
-	x = 0.0;
-	y = 0.0;
-	z = 0.0;
-}
+Violet::Vec3d::Vec3d() { x = 0.0; y = 0.0; z = 0.0; }
+Violet::Vec3d::Vec3d(double x, double y, double z) { this->x = x; this->y = y; this->z = z; }
 
-Violet::Vec3d::Vec3d(double x, double y, double z) {
-	this->x = x;
-	this->y = y;
-	this->z = z;
-}
-
+/*
 double Violet::Vec3d::lengthSq(const Vec3d& vec) {
 	return (vec.x * vec.x) + (vec.y * vec.y) + (vec.z * vec.z);
 }
@@ -53,6 +45,11 @@ Violet::Vec3d Violet::Vec3d::cross(const Vec3d& a, const Vec3d& b) {
 		(a.x * b.y) - (a.y * b.x)
 	};
 }
+*/
+
+Violet::Vec3d& Violet::Vec3d::operator = (const Violet::Vec3i& vec) { x = (double)vec.x; y = (double)vec.y; z = (double)vec.z; }
+Violet::Vec3d& Violet::Vec3d::operator = (const Violet::Vec3f& vec) { x = (double)vec.x; y = (double)vec.y; z = (double)vec.z; }
+Violet::Vec3d& Violet::Vec3d::operator = (const Violet::Vec3d& vec) { x = (double)vec.x; y = (double)vec.y; z = (double)vec.z; }
 
 Violet::Vec3d Violet::Vec3d::operator +  (const Vec3d& vec)   const { return { x + vec.x, y + vec.y, z + vec.z }; }
 Violet::Vec3d Violet::Vec3d::operator -  (const Vec3d& vec)   const { return { x - vec.x, y - vec.y, z - vec.z }; }
