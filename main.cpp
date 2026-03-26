@@ -74,8 +74,8 @@ static void inputTest() {
 
 static void debugGui(Vi::Window& window, Vi::Camera& camera) {
 	Vi::Vec2i screen_size = window.size();
-	ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiCond_Always);
-	ImGui::SetNextWindowSize(ImVec2(200, screen_size.y), ImGuiCond_Always);
+	ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
+	ImGui::SetNextWindowSize(ImVec2(200.0f, (float)screen_size.y), ImGuiCond_Always);
 	ImGui::Begin(
 		"stats for nerds",
 		nullptr,
@@ -105,3 +105,4 @@ static void controlCamera(Vi::Camera& camera) {
 
 	camera.position = Vi::Camera::forward_dir(camera) * 2.0;
 }
+
