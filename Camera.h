@@ -1,6 +1,6 @@
 
 #pragma once
-#include "QuatMath.h"
+#include "Vertex.h"
 
 namespace Violet {
 

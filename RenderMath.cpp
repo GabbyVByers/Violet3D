@@ -1,5 +1,5 @@
 
-#include "RenderMath.h"
+#include "Rendermath.h"
 
 Violet::Mat4 Violet::Math::model_matrix(const Mesh& mesh) {
 	Mat4 scalar_matrix = Math::scalar_matrix(mesh.transform.scale);

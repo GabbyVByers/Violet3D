@@ -1,5 +1,5 @@
 
-#include "QuatMath.h"
+#include "Coremath.h"
 #include <cmath>
 
 Violet::Vec3f Violet::Math::rotate_around_axis(const Vec3f& vec, const Vec3i& axis, float  theta) {

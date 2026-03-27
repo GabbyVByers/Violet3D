@@ -1,8 +1,6 @@
 
 #pragma once
 #include "Corelib.h"
-#include "Color.h"
-#include <string>
 
 namespace Violet {
 

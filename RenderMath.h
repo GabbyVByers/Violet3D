@@ -1,8 +1,6 @@
 
 #pragma once
-#include "Mat4.h"
-#include "Mesh.h"
-#include "Camera.h"
+#include "Shapes.h"
 
 namespace Violet {
 	namespace Math {

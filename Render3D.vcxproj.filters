@@ -90,10 +90,10 @@
     <ClCompile Include="Window.cpp">
       <Filter>Render3D\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QuatMath.cpp">
+    <ClCompile Include="Coremath.cpp">
       <Filter>Render3D\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RenderMath.cpp">
+    <ClCompile Include="Rendermath.cpp">
       <Filter>Render3D\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Shapes.cpp">
@@ -146,7 +146,7 @@
     <ClInclude Include="Camera.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuatMath.h">
+    <ClInclude Include="Coremath.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vec2.h">
@@ -164,7 +164,7 @@
     <ClInclude Include="Corelib.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderMath.h">
+    <ClInclude Include="Rendermath.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">

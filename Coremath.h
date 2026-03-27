@@ -1,5 +1,7 @@
 
 #pragma once
+#include "Mat4.h"
+#include "Color.h"
 #include "Vec2.h"
 #include "Vec3.h"
 #include "Quat.h"

@@ -159,8 +159,8 @@
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RenderMath.cpp" />
-    <ClCompile Include="QuatMath.cpp" />
+    <ClCompile Include="Rendermath.cpp" />
+    <ClCompile Include="Coremath.cpp" />
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vec2d.cpp" />
@@ -196,8 +196,8 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="RenderMath.h" />
-    <ClInclude Include="QuatMath.h" />
+    <ClInclude Include="Rendermath.h" />
+    <ClInclude Include="Coremath.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Quat.h" />
     <ClInclude Include="Mat4.h" />

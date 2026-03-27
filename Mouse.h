@@ -1,7 +1,6 @@
 
 #pragma once
 #include "glEvent.h"
-#include "Vec2.h"
 #include <vector>
 
 namespace Violet {

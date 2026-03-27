@@ -1,14 +1,6 @@
 
 #pragma once
-#include <vector>
-#include <string>
-#include "Texture.h"
-#include "Material.h"
-#include "Transform.h"
-#include "Vertex.h"
-#include "Corelib.h"
-#include "Color.h"
-#include "QuatMath.h"
+#include "Camera.h"
 
 namespace Violet {
 

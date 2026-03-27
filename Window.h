@@ -1,10 +1,7 @@
 
 #pragma once
-#include "RenderMath.h"
-#include "Mouse.h"
+#include "Rendermath.h"
 #include "Keyboard.h"
-#include <string>
-#include <vector>
 
 namespace Violet {
 
