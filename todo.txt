@@ -1,40 +1,18 @@
 
+TODO:
+    1. Upgrade to OpenGL 4.6
+    2. add CUDA
+    3. const-correctness could be tightened in a few places.
+    4. Remove EBO + Implement single normal per triangle lighting
 
-Upgrade to OpenGL 4.6
-Add CUDA
-
-Really need to address:
+Resolved:
     1. Mesh owns OpenGL handles and deletes them in ~Mesh(),
     but copy/move behavior is not disabled or implemented.
-    2. const-correctness could be tightened in a few places.
+    2. Vi::Texture texture (add to mesh) + vertex needs tex coords.
 
-Vi::Texture texture (add to mesh)
-vertex needs tex coords
-mesh is most generic thing you can draw and can be used openendedly
-
-inherited meshies implement:
-    generating geometry
-    calculating tex coords
-
-implementing a special draw() to window for each meshie
-
-(inheritance)
-mesh -> sphere
-     -> cube
-     -> arrow
-
-vao, vbo, ebo
-
-MyClass;
-my_func();
-my_var;
-
-Member functions:
-    return nothing and permute internal state or do an observable thing.
-    non-trivial getters/setters.
-
-Namespace functions:
-    do math/computations on data from several different types.
-    type = function(type a, type b, type c) // does not trivially belong to any class
-
+Descided Against:
+    1. Implementing a special draw() to window for each meshie.
+    2. mesh is most generic thing you can draw and can be used openendedly.
+    3. inherited meshies implement: generating geometry + calculating tex coords.
+    4. (inheritance) mesh -> sphere -> cube -> arrow
 
