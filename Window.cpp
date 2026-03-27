@@ -85,12 +85,14 @@ void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 	if (indices.size() == 0)
 		return;
 
-	if (texture != NULL)
-		glBindTexture(GL_TEXTURE_2D, texture);
+	glUseProgram(shader);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glUniform1i(glGetUniformLocation(shader, "ourTexture"), NULL);
+
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glUseProgram(shader);
 
 	Mat4 model_matrix = Math::model_matrix(mesh);
 	Mat4 view_matrix = Math::view_matrix(camera);
@@ -101,7 +103,7 @@ void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_DYNAMIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), &indices[0], GL_DYNAMIC_DRAW);
-	glDrawElements(primitive, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
+	glDrawElements(primitive, (GLsizei)indices.size(), GL_UNSIGNED_INT, NULL);
 }
 
 void Violet::Window::display() {

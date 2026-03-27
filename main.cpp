@@ -11,11 +11,11 @@ int main() {
 	Vi::Camera camera;
 
 	Vi::Mesh mesh;
-	//mesh.texture = Vi::Texture("test_image.png");
-	mesh.vertices.push_back({ Vi::Vec3f(-0.5f, 0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 1.0f) });
-	mesh.vertices.push_back({ Vi::Vec3f(-0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 0.0f) });
-	mesh.vertices.push_back({ Vi::Vec3f( 0.5f, 0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 1.0f) });
-	mesh.vertices.push_back({ Vi::Vec3f( 0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 0.0f) });
+	mesh.texture = Vi::Texture("test_image.png");
+	mesh.vertices.push_back({ Vi::Vec3f(-0.5f, 0.5f, 0.0f), Vi::Color::cyan(), Vi::Vec2f( 0.0f, 1.0f) });
+	mesh.vertices.push_back({ Vi::Vec3f(-0.5f,-0.5f, 0.0f), Vi::Color::purple(), Vi::Vec2f( 0.0f, 0.0f) });
+	mesh.vertices.push_back({ Vi::Vec3f( 0.5f, 0.5f, 0.0f), Vi::Color::yellow(), Vi::Vec2f( 1.0f, 1.0f) });
+	mesh.vertices.push_back({ Vi::Vec3f( 0.5f,-0.5f, 0.0f), Vi::Color::red(), Vi::Vec2f( 1.0f, 0.0f) });
 	mesh.indices.push_back(0);
 	mesh.indices.push_back(1);
 	mesh.indices.push_back(2);
@@ -102,6 +102,7 @@ static void debugGui(Vi::Window& window, Vi::Camera& camera) {
 
 static void controlCamera(Vi::Camera& camera) {
 	constexpr double speed = 0.001;
+	static double distance = 2.0;
 	Vi::Mouse& mouse = Vi::Window::mouse();
 
 	if (mouse.pressing(GLFW_MOUSE_BUTTON_LEFT)) {
@@ -112,7 +113,11 @@ static void controlCamera(Vi::Camera& camera) {
 		Vi::Quat rot_right = Vi::Math::rotation_quat(right, (double)mouse.velocity().y * -speed);
 		camera.orientation = rot_right * camera.orientation;
 	}
+	int scroll = mouse.scroll();
+	if (scroll != 0) {
+		distance *= ((45.0 - (double)scroll) / 45.0);
+	}
 
-	camera.position = Vi::Camera::forward_dir(camera) * 2.0;
+	camera.position = Vi::Camera::forward_dir(camera) * distance;
 }
 

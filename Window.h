@@ -1,5 +1,6 @@
 
 #pragma once
+#include "RenderMath.h"
 #include "Mouse.h"
 #include "Keyboard.h"
 #include <string>
