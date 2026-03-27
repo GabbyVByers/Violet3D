@@ -98,14 +98,8 @@ void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 	Mat4 view_matrix = Math::view_matrix(camera);
 	Mat4 projection_matrix = Math::projection_matrix(camera, Window::size());
 	Mat4 model_view_project = projection_matrix * view_matrix * model_matrix;
-	Mat4f model_float = Math::float_matrix(model_matrix);
 	Mat4f mvp_float = Math::float_matrix(model_view_project);
-	glUniformMatrix4fv(glGetUniformLocation(shader, "uModel"), 1, GL_TRUE, &model_float.data[0][0]);
 	glUniformMatrix4fv(glGetUniformLocation(shader, "uModelViewProject"), 1, GL_TRUE, &mvp_float.data[0][0]);
-
-	Vec3d cam_dir = Camera::forward_dir(camera);
-	Vec3f light_dir = Vec3f::normalize({ (float)cam_dir.x, (float)cam_dir.y, (float)cam_dir.z });
-	glUniform3fv(glGetUniformLocation(shader, "uLightDir"), 1, (float*)&light_dir);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_DYNAMIC_DRAW);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), &indices[0], GL_DYNAMIC_DRAW);
