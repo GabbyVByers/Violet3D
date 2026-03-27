@@ -151,7 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -184,7 +183,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="glEvent.h" />
-    <ClInclude Include="Image.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_glfw.h" />
@@ -196,6 +194,7 @@
     <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="Corelib.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="RenderMath.h" />
     <ClInclude Include="QuatMath.h" />
@@ -205,8 +204,10 @@
     <ClInclude Include="Shapes.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="Vec3.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Violet3D.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
