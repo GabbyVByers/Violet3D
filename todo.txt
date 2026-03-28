@@ -1,9 +1,13 @@
 
 TODO:
-    1. Upgrade to OpenGL 4.6
-    2. add CUDA
+    1. Upgrade to OpenGL 4.6.
+    2. add CUDA.
     3. const-correctness could be tightened in a few places.
-    4. Remove EBO + Implement single normal per triangle lighting
+    4. Remove EBO + Implement single normal per triangle lighting.
+    5. Vi::Window does not need to be singleton.
+    6. Shape::sphere, cube, arrow - debug normals on triangles w/ arrows.
+    7. Add flag to mesh that tracks if vertices edited since last draw call.
+    8. Encapsulate camera and transform transformations (separately).
 
 Resolved:
     1. Mesh owns OpenGL handles and deletes them in ~Mesh(),

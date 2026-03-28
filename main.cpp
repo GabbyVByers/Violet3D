@@ -2,9 +2,9 @@
 #include "Violet3D.h"
 #include <iostream>
 
-static void inputTest();
-static void debugGui(Vi::Window& window, Vi::Camera& camera);
-static void controlCamera(Vi::Camera& camera);
+static void input_test();
+static void debug_gui(Vi::Window& window, Vi::Camera& camera);
+static void control_camera(Vi::Camera& camera);
 
 int main() {
 	Vi::Window window("Render3D Demo", 1920, 1080);
@@ -15,13 +15,9 @@ int main() {
 	mesh.vertices.push_back({ Vi::Vec3f(-0.5f, 0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 1.0f) });
 	mesh.vertices.push_back({ Vi::Vec3f(-0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 0.0f) });
 	mesh.vertices.push_back({ Vi::Vec3f( 0.5f, 0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 1.0f) });
+	mesh.vertices.push_back({ Vi::Vec3f( 0.5f, 0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 1.0f) });
+	mesh.vertices.push_back({ Vi::Vec3f(-0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 0.0f) });
 	mesh.vertices.push_back({ Vi::Vec3f( 0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 0.0f) });
-	mesh.indices.push_back(0);
-	mesh.indices.push_back(1);
-	mesh.indices.push_back(2);
-	mesh.indices.push_back(2);
-	mesh.indices.push_back(1);
-	mesh.indices.push_back(3);
 	
 	Vi::Mesh sphere_mesh = Vi::Shapes::sphere(10);
 	
@@ -29,9 +25,9 @@ int main() {
 		window.poll_events();
 		window.clear(Violet::Color::blue() * 0.25);
 
-		inputTest();
-		controlCamera(camera);
-		debugGui(window, camera);
+		input_test();
+		control_camera(camera);
+		debug_gui(window, camera);
 
 		//window.draw(sphere_mesh, camera);
 		window.draw(mesh, camera);
@@ -41,7 +37,7 @@ int main() {
 	return 0;
 }
 
-static void inputTest() {
+static void input_test() {
 	Vi::Mouse& mouse = Vi::Window::mouse();
 	Vi::Keyboard& keyboard = Vi::Window::keyboard();
 
@@ -82,7 +78,7 @@ static void inputTest() {
 		std::cout << "A Button Being Held Down\n";
 }
 
-static void debugGui(Vi::Window& window, Vi::Camera& camera) {
+static void debug_gui(Vi::Window& window, Vi::Camera& camera) {
 	Vi::Vec2i screen_size = window.size();
 	ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
 	ImGui::SetNextWindowSize(ImVec2(200.0f, (float)screen_size.y), ImGuiCond_Always);
@@ -100,7 +96,7 @@ static void debugGui(Vi::Window& window, Vi::Camera& camera) {
 	ImGui::End();
 }
 
-static void controlCamera(Vi::Camera& camera) {
+static void control_camera(Vi::Camera& camera) {
 	constexpr double speed = 0.001;
 	static double distance = 2.0;
 	Vi::Mouse& mouse = Vi::Window::mouse();

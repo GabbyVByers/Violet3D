@@ -8,7 +8,6 @@ namespace Violet {
 	public:
 		GLuint vao = NULL;
 		GLuint vbo = NULL;
-		GLuint ebo = NULL;
 		GLuint shader = NULL;
 		GLenum primitive = NULL;
 		Material(const std::string& path, GLenum type);

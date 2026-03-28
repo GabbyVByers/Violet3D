@@ -7,10 +7,8 @@ Violet::Material::Material(const std::string& path, GLenum type) {
 	primitive = type;
 	glGenVertexArrays(1, &vao);
 	glGenBuffers(1, &vbo);
-	glGenBuffers(1, &ebo);
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
 	glEnableVertexAttribArray(0);
@@ -60,19 +58,16 @@ Violet::Material::Material(const std::string& path, GLenum type) {
 Violet::Material::~Material() {
 	if (vao)    glDeleteVertexArrays(1, &vao);
 	if (vbo)    glDeleteBuffers(1, &vbo);
-	if (ebo)    glDeleteBuffers(1, &ebo);
 	if (shader) glDeleteProgram(shader);
 }
 
 Violet::Material::Material(Material&& other) noexcept {
 	vao       = other.vao;
 	vbo       = other.vbo;
-	ebo       = other.ebo;
 	shader    = other.shader;
 	primitive = other.primitive;
 	other.vao       = NULL;
 	other.vbo       = NULL;
-	other.ebo       = NULL;
 	other.shader    = NULL;
 	other.primitive = NULL;
 };
@@ -80,16 +75,13 @@ Violet::Material::Material(Material&& other) noexcept {
 Violet::Material& Violet::Material::operator = (Material&& other) noexcept {
 	if (vao)    glDeleteVertexArrays(1, &vao);
 	if (vbo)    glDeleteBuffers(1, &vbo);
-	if (ebo)    glDeleteBuffers(1, &ebo);
 	if (shader) glDeleteProgram(shader);
 	vao       = other.vao;
 	vbo       = other.vbo;
-	ebo       = other.ebo;
 	shader    = other.shader;
 	primitive = other.primitive;
 	other.vao       = NULL;
 	other.vbo       = NULL;
-	other.ebo       = NULL;
 	other.shader    = NULL;
 	other.primitive = NULL;
 	return *this;

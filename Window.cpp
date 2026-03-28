@@ -72,17 +72,12 @@ void Violet::Window::clear(Violet::Color color) {
 void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 	const GLuint vao = mesh.material.vao;
 	const GLuint vbo = mesh.material.vbo;
-	const GLuint ebo = mesh.material.ebo;
 	const GLuint shader = mesh.material.shader;
 	const GLuint primitive = mesh.material.primitive;
 	const GLuint texture = mesh.texture.texture;
 	const std::vector<Vertex>& vertices = mesh.vertices;
-	const std::vector<unsigned int>& indices = mesh.indices;
 
 	if (vertices.size() == 0)
-		return;
-
-	if (indices.size() == 0)
 		return;
 
 	glUseProgram(shader);
@@ -92,7 +87,6 @@ void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 	Mat4 model_matrix = Math::model_matrix(mesh);
 	Mat4 view_matrix = Math::view_matrix(camera);
@@ -102,8 +96,7 @@ void Violet::Window::draw(const Mesh& mesh, Camera& camera) {
 	glUniformMatrix4fv(glGetUniformLocation(shader, "uModelViewProject"), 1, GL_TRUE, &mvp_float.data[0][0]);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), &vertices[0], GL_DYNAMIC_DRAW);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), &indices[0], GL_DYNAMIC_DRAW);
-	glDrawElements(primitive, (GLsizei)indices.size(), GL_UNSIGNED_INT, NULL);
+	glDrawArrays(primitive, NULL, (GLsizei)vertices.size());
 }
 
 void Violet::Window::display() {
