@@ -112,6 +112,7 @@ static void control_camera(Vi::Camera& camera) {
 		Vi::Vec3d right = camera.right();
 		Vi::Quat rot_right = Vi::Quat::rotation(right, (double)mouse.velocity().y * -speed);
 		camera.orientation = rot_right * camera.orientation;
+		camera.orientation = Vi::Quat::normalize(camera.orientation);
 	}
 	double scroll = mouse.scroll();
 	if (scroll != 0) {

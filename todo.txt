@@ -11,6 +11,8 @@ TODO:
     12. Networking/Sockets.
     13. Ability to interact with meshies.
     14. Add all move/copy members to Vec2/Vec3
+    15. Mesh constructor has dependency on assumption that OpenGL context exists.
+    16. Add more error checking, implement something more useful than calling std::terminate().
 
 Implemented:
     1. Mesh owns OpenGL handles and deletes them in ~Mesh(),

@@ -26,7 +26,7 @@ namespace Violet {
 		keyboard_events.clear();
 	}
 
-	void Keyboard::push_key_event(GlfwKeyboardEvent& key_event) {
+	void Keyboard::push_key_event(const GlfwKeyboardEvent& key_event) {
 		keyboard_events.push_back(key_event);
 	}
 }

@@ -31,8 +31,8 @@ namespace Violet {
 		std::vector<GlfwMouseEvent> mouse_events;
 		std::vector<GlfwScrollEvent> scroll_events;
 		void reset();
-		void push_mouse_event(GlfwMouseEvent mouse_event);
-		void push_scroll_event(GlfwScrollEvent scroll_event);
+		void push_mouse_event(const GlfwMouseEvent& mouse_event);
+		void push_scroll_event(const GlfwScrollEvent& scroll_event);
 
 		Mouse(const Mouse& mouse) = delete;
 		Mouse(Mouse&& mouse) noexcept = delete;
@@ -51,7 +51,7 @@ namespace Violet {
 		GLFWwindow* window_ptr = nullptr;
 		std::vector<GlfwKeyboardEvent> keyboard_events;
 		void reset();
-		void push_key_event(GlfwKeyboardEvent& key_event);
+		void push_key_event(const GlfwKeyboardEvent& key_event);
 
 		Keyboard(const Keyboard& keyboard) = delete;
 		Keyboard(Keyboard&& keyboard) noexcept = delete;

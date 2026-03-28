@@ -47,11 +47,11 @@ namespace Violet {
 		scroll_events.clear();
 	}
 
-	void Mouse::push_mouse_event(GlfwMouseEvent mouse_event) {
+	void Mouse::push_mouse_event(const GlfwMouseEvent& mouse_event) {
 		mouse_events.push_back(mouse_event);
 	}
 
-	void Mouse::push_scroll_event(GlfwScrollEvent scroll_event) {
+	void Mouse::push_scroll_event(const GlfwScrollEvent& scroll_event) {
 		scroll_events.push_back(scroll_event);
 	}
 }
