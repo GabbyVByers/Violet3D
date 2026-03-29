@@ -4,11 +4,26 @@
 */
 
 #pragma once
-#include "GlfwEvent.h"
 #include "Mesh.h"
 #include "Shapes.h"
 
 namespace Violet {
+
+	struct GlfwMouseEvent;
+	struct GlfwScrollEvent;
+	struct GlfwKeyboardEvent;
+
+	struct GlfwMouseEvent {
+		int button, action, mods;
+	};
+
+	struct GlfwScrollEvent {
+		double xoffset, yoffset;
+	};
+
+	struct GlfwKeyboardEvent {
+		int key, scancode, action, mods;
+	};
 
 	class Mouse;
 	class Keyboard;

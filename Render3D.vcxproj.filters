@@ -102,6 +102,9 @@
     <ClCompile Include="Mesh.Transform.cpp">
       <Filter>Render3D\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Render3D\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -134,9 +137,6 @@
     <ClInclude Include="Window.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GlfwEvent.h">
-      <Filter>Render3D\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
@@ -148,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Source Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Render3D\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

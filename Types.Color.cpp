@@ -40,9 +40,15 @@ namespace Violet {
 	static float clamp(float value) {
 		return std::max(0.0f, std::min(value, 1.0f));
 	}
-	Color Color::operator *  (const float scale) const { return { clamp(r * scale), clamp(g * scale), clamp(b * scale) }; }
-	Color Color::operator /  (const float scale) const { return { clamp(r / scale), clamp(g / scale), clamp(b / scale) }; }
-	void  Color::operator *= (const float scale) { r = clamp(r * scale); g = clamp(g * scale); b = clamp(b * scale); }
-	void  Color::operator /= (const float scale) { r = clamp(r / scale); g = clamp(g / scale); b = clamp(b / scale); }
+
+	Color Color::operator *  (const float scale) const { return { clamp(r * scale), clamp(g * scale), clamp(b * scale), 1.0f }; }
+	Color Color::operator /  (const float scale) const { return { clamp(r / scale), clamp(g / scale), clamp(b / scale), 1.0f }; }
+	void  Color::operator *= (const float scale) { r = clamp(r * scale); g = clamp(g * scale); b = clamp(b * scale); a = 1.0f; }
+	void  Color::operator /= (const float scale) { r = clamp(r / scale); g = clamp(g / scale); b = clamp(b / scale); a = 1.0f; }
+
+	Color Color::operator *  (const Color& color) const { return { r * color.r, g * color.g, b * color.b, a * color.a }; }
+	Color Color::operator /  (const Color& color) const { return { r / color.r, g / color.g, b / color.b, a / color.a }; }
+	void  Color::operator *= (const Color& color) { r *= color.r; g *= color.g; b *= color.b; a *= color.a; }
+	void  Color::operator /= (const Color& color) { r /= color.r; g /= color.g; b /= color.b; a /= color.a; }
 }
 

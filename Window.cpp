@@ -9,16 +9,24 @@ namespace Violet {
 
 	Window::Window(std::string title, int width, int height) {
 		if (instances++ != NULL)
-			std::terminate();
+			Log::warning(WINDOW_SINGLETON_VIOLATED);
 
-		glfwInit();
+		GLuint status = glfwInit();
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		if (status == NULL)
+			Log::warning(GLFW_INIT_FAIL);
 
 		window_ptr = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+		if (window_ptr == nullptr)
+			Log::warning(GLFW_WINDOW_CREATE_FAIL);
+
 		glfwMakeContextCurrent(window_ptr);
-		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		if (status == NULL)
+			Log::warning(GLAD_LOAD_FAIL);
+
 		glViewport(0, 0, width, height);
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_PROGRAM_POINT_SIZE);

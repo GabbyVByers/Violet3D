@@ -4,19 +4,7 @@
 */
 
 #pragma once
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-#include <algorithm>
-#include <numbers>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <cstdlib>
-#include <cmath>
+#include "Log.h"
 
 namespace Violet {
 
@@ -280,7 +268,6 @@ namespace Violet {
 
 		static Quat normalize(const Quat& quat);
 		static Quat complex_conjugate(const Quat& quat);
-
 		static Quat rotation(const Vec3i& axis, double theta);
 		static Quat rotation(const Vec3f& axis, double theta);
 		static Quat rotation(const Vec3d& axis, double theta);
@@ -308,6 +295,11 @@ namespace Violet {
 		Color operator /  (const float scale) const;
 		void  operator *= (const float scale);
 		void  operator /= (const float scale);
+
+		Color operator *  (const Color& color) const;
+		Color operator /  (const Color& color) const;
+		void  operator *= (const Color& color);
+		void  operator /= (const Color& color);
 	};
 }
 

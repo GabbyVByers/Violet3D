@@ -8,6 +8,10 @@
 namespace Violet {
 
 	Material::Material(const std::string& path, GLenum type) {
+		GLFWwindow* window = glfwGetCurrentContext();
+		if (window == nullptr)
+			Log::warning(NO_GLFW_CONTEXT);
+
 		primitive = type;
 		glGenVertexArrays(1, &vao);
 		glGenBuffers(1, &vbo);
