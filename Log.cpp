@@ -11,7 +11,8 @@ namespace Violet {
     
     std::string Log::elaborate(Concern concern) {
         switch (concern) {
-            case MESH_BEFORE_WINDOW: return "Mesh constructor called before OpenGL context has been established"; break;
+            case NO_GLFW_CONTEXT: return "No GLFW context has yet been created!"; break;
+            default: return "";
         }
     }
 }

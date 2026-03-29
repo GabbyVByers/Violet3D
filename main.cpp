@@ -3,7 +3,6 @@
 	main.cpp
 */
 
-#include "Log.h"
 #include "Window.h"
 
 #define Vi Vi

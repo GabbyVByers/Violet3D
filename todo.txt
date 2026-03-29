@@ -13,6 +13,9 @@ TODO:
     14. Add all move/copy members to Vec2/Vec3
     15. Mesh constructor has dependency on assumption that OpenGL context exists.
     16. Add more error checking, implement something more useful than calling std::terminate().
+    17. I can untangle the coupling between Window/Mouse/Keyboard using glfwGetContextCurrent(),
+        instead of sharing a window_ptr between the three of these classes.  I should also be able to
+        restructure the Window class so that it is not a singleton in the awkward way I've build it.
 
 Implemented:
     1. Mesh owns OpenGL handles and deletes them in ~Mesh(),

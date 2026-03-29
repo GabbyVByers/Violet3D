@@ -34,8 +34,7 @@ namespace Violet {
 		Log() = delete;
 		Log(const Log&) = delete;
 		Log(Log&&) noexcept = delete;
-
-		std::string elaborate(Concern concern);
+		static std::string elaborate(Concern concern);
 	};
 }
 
