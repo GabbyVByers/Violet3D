@@ -25,7 +25,7 @@ int main() {
 	//mesh.vertices.push_back({ Vi::Vec3f(-0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 0.0f, 0.0f) });
 	//mesh.vertices.push_back({ Vi::Vec3f( 0.5f,-0.5f, 0.0f), Vi::Color::white(), Vi::Vec2f( 1.0f, 0.0f) });
 	
-	Vi::Mesh sphere_mesh = Vi::Shapes::sphere(5);
+	Vi::Mesh sphere_mesh = Vi::Shapes::sphere(100);
 	sphere_mesh.paint(Vi::Color::white());
 	sphere_mesh.texture = Vi::Texture("simple_earth.png");
 

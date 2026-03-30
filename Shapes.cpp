@@ -82,15 +82,25 @@ namespace Violet {
 		}
 
 		for (size_t i = 0; i < sphere_mesh.vertices.size(); i += 3) {
+			auto width = [](
+				const Vertex& a,
+				const Vertex& b,
+				const Vertex& c
+			) -> float {
+				float min = std::min(a.tex_coord.x, std::min(b.tex_coord.x, c.tex_coord.x));
+				float max = std::max(a.tex_coord.x, std::max(b.tex_coord.x, c.tex_coord.x));
+				return abs(min - max);
+			};
+			
 			Vertex& a = sphere_mesh.vertices[i];
 			Vertex& b = sphere_mesh.vertices[i + 1];
 			Vertex& c = sphere_mesh.vertices[i + 2];
-			float umin = std::min(a.tex_coord.x, std::min(b.tex_coord.x, c.tex_coord.x));
-			float umax = std::max(a.tex_coord.x, std::max(b.tex_coord.x, c.tex_coord.x));
-			if (abs(umin - umax) > 0.5f) {
 
+			if (width(a, b, c) > 0.5f) {
+				if (a.tex_coord.x < 0.5f) a.tex_coord.x += 1.0f;
+				if (b.tex_coord.x < 0.5f) b.tex_coord.x += 1.0f;
+				if (c.tex_coord.x < 0.5f) c.tex_coord.x += 1.0f;
 			}
-
 		}
 
 		return sphere_mesh;
