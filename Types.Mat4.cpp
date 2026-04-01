@@ -15,6 +15,7 @@ namespace Violet {
 			0, 0, 0, 1
 		};
 	}
+
 	Mat4::Mat4(
 		double a, double b, double c, double d,
 		double e, double f, double g, double h,
@@ -36,6 +37,7 @@ namespace Violet {
 			0, 0, 0, 1
 		};
 	}
+
 	Mat4 Mat4::translation_matrix(const Vec3d& position) {
 		const double x = position.x;
 		const double y = position.y;
@@ -47,6 +49,7 @@ namespace Violet {
 			0, 0, 0, 1
 		};
 	}
+
 	Mat4 Mat4::rotation_matrix(const Quat& rotation_quat) {
 		Quat rot_n = Quat::normalize(rotation_quat);
 		double xw = rot_n.x * rot_n.w;

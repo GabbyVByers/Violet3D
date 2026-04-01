@@ -13,6 +13,7 @@ namespace Violet {
 		y = 0.0;
 		z = 0.0;
 	}
+
 	Quat::Quat(double w, double x, double y, double z) {
 		this->w = w;
 		this->x = x;
@@ -31,6 +32,7 @@ namespace Violet {
 			quat.z / length
 		};
 	}
+
 	Quat Quat::complex_conjugate(const Quat& quat) {
 		return {
 			quat.w,
@@ -50,6 +52,7 @@ namespace Violet {
 			s * (double)axis.z
 		};
 	}
+
 	Quat Quat::rotation(const Vec3f& axis, double theta) {
 		Vec3f axis_n = Vec3f::normalize(axis);
 		double half = theta * 0.5;
@@ -61,6 +64,7 @@ namespace Violet {
 			s * (double)axis_n.z
 		};
 	}
+
 	Quat Quat::rotation(const Vec3d& axis, double theta) {
 		Vec3d axis_n = Vec3d::normalize(axis);
 		double half = theta * 0.5;

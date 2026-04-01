@@ -13,6 +13,7 @@ namespace Violet {
 		b = 1.0f;
 		a = 1.0f;
 	}
+
 	Color::Color(float r, float g, float b, float a) {
 		this->r = r;
 		this->g = g;
@@ -28,6 +29,7 @@ namespace Violet {
 			1.0
 		};
 	}
+
 	Color Color::white()  { return { 1.0f, 1.0f, 1.0f, 1.0f }; }
 	Color Color::black()  { return { 0.0f, 0.0f, 0.0f, 1.0f }; }
 	Color Color::red()    { return { 1.0f, 0.0f, 0.0f, 1.0f }; }
@@ -45,7 +47,6 @@ namespace Violet {
 	Color Color::operator /  (const float scale) const { return { clamp(r / scale), clamp(g / scale), clamp(b / scale), 1.0f }; }
 	void  Color::operator *= (const float scale) { r = clamp(r * scale); g = clamp(g * scale); b = clamp(b * scale); a = 1.0f; }
 	void  Color::operator /= (const float scale) { r = clamp(r / scale); g = clamp(g / scale); b = clamp(b / scale); a = 1.0f; }
-
 	Color Color::operator *  (const Color& color) const { return { r * color.r, g * color.g, b * color.b, a * color.a }; }
 	Color Color::operator /  (const Color& color) const { return { r / color.r, g / color.g, b / color.b, a / color.a }; }
 	void  Color::operator *= (const Color& color) { r *= color.r; g *= color.g; b *= color.b; a *= color.a; }

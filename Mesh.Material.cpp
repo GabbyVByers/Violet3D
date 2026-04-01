@@ -29,7 +29,7 @@ namespace Violet {
 			std::stringstream buffer;
 			buffer << file.rdbuf();
 			return buffer.str();
-			};
+		};
 
 		std::string vert_source = load(path + ".vert");
 		std::string frag_source = load(path + ".frag");
@@ -69,13 +69,13 @@ namespace Violet {
 	}
 
 	Material::Material(Material&& other) noexcept {
-		vao = other.vao;
-		vbo = other.vbo;
-		shader = other.shader;
+		vao       = other.vao;
+		vbo       = other.vbo;
+		shader    = other.shader;
 		primitive = other.primitive;
-		other.vao = NULL;
-		other.vbo = NULL;
-		other.shader = NULL;
+		other.vao       = NULL;
+		other.vbo       = NULL;
+		other.shader    = NULL;
 		other.primitive = NULL;
 	};
 
@@ -83,13 +83,13 @@ namespace Violet {
 		if (vao)    glDeleteVertexArrays(1, &vao);
 		if (vbo)    glDeleteBuffers(1, &vbo);
 		if (shader) glDeleteProgram(shader);
-		vao = other.vao;
-		vbo = other.vbo;
-		shader = other.shader;
+		vao       = other.vao;
+		vbo       = other.vbo;
+		shader    = other.shader;
 		primitive = other.primitive;
-		other.vao = NULL;
-		other.vbo = NULL;
-		other.shader = NULL;
+		other.vao       = NULL;
+		other.vbo       = NULL;
+		other.shader    = NULL;
 		other.primitive = NULL;
 		return *this;
 	}
