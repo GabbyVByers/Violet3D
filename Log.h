@@ -14,8 +14,9 @@
 #include <cstdlib>
 #include <cmath>
 #include <cassert>
+#define Vi Vi
 
-namespace Violet {
+namespace Vi {
 	
 	enum Concern {
 		// General

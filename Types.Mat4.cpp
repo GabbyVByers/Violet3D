@@ -5,7 +5,7 @@
 
 #include "Types.h"
 
-namespace Violet {
+namespace Vi {
 
 	Mat4::Mat4() {
 		(*this) = {

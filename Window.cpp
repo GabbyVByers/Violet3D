@@ -5,7 +5,7 @@
 
 #include "Window.h"
 
-namespace Violet {
+namespace Vi {
 
 	Window::Window(std::string title, int width, int height) {
 		Log::assert_concern(instances++ == NULL, WINDOW_SINGLETON_VIOLATED);

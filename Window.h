@@ -7,7 +7,7 @@
 #include "Mesh.h"
 #include "Shapes.h"
 
-namespace Violet {
+namespace Vi {
 
 	class Mouse;
 	class Keyboard;

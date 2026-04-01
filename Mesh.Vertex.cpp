@@ -1,7 +1,7 @@
 
 #include "Mesh.h"
 
-namespace Violet {
+namespace Vi {
 
     Vertex::Vertex(const Vec3f& position, const Color& color, const Vec2f& tex_coord) {
         this->position = position;

@@ -6,7 +6,7 @@
 #pragma once
 #include "Log.h"
 
-namespace Violet {
+namespace Vi {
 
 	class Vec2i;
 	class Vec2f;

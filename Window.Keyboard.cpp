@@ -5,7 +5,7 @@
 
 #include "Window.h"
 
-namespace Violet {
+namespace Vi {
 
 	bool Keyboard::pressed(int key, int edge) const {
 		for (const GlfwKeyboardEvent& key_event : keyboard_events) {

@@ -5,7 +5,7 @@
 
 #include "Mesh.h"
 
-namespace Violet {
+namespace Vi {
 
 	Mat4 Transform::model_matrix() const {
 		Mat4 scalar_matrix = Mat4::scalar_matrix(scale);

@@ -5,7 +5,7 @@
 
 #include "Mesh.h"
 
-namespace Violet {
+namespace Vi {
 
 	Vec3d Camera::forward() const {
 		Vec3d forward = Vec3d(0.0, 0.0, -1.0);

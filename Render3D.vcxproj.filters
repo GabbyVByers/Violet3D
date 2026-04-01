@@ -161,6 +161,9 @@
     <ClInclude Include="Log.h">
       <Filter>Render3D\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Demo.h">
+      <Filter>Render3D\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">

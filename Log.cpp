@@ -5,7 +5,7 @@
 
 #include "Log.h"
 
-namespace Violet {
+namespace Vi {
 
 	void Log::assert_concern(
 		bool statement,

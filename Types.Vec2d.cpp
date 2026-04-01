@@ -5,7 +5,7 @@
 
 #include "Types.h"
 
-namespace Violet {
+namespace Vi {
 
 	Vec2d::Vec2d() { x = 0.0; y = 0.0; }
 	Vec2d::Vec2d(double x, double y) { this->x = x; this->y = y; }

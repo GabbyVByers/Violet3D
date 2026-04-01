@@ -5,7 +5,7 @@
 
 #include "Types.h"
 
-namespace Violet {
+namespace Vi {
 
 	Quat::Quat() {
 		w = 1.0;

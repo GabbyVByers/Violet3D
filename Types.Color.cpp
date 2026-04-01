@@ -5,7 +5,7 @@
 
 #include "Types.h"
 
-namespace Violet {
+namespace Vi {
 
 	Color::Color() {
 		r = 1.0f;

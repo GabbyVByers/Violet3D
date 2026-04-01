@@ -6,7 +6,7 @@
 #pragma once
 #include "Mesh.h"
 
-namespace Violet {
+namespace Vi {
 
 	class Shapes {
 	public:

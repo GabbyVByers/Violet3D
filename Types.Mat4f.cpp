@@ -5,7 +5,7 @@
 
 #include "Types.h"
 
-namespace Violet {
+namespace Vi {
 
 	Mat4f::Mat4f(const Mat4& matrix) {
 		for (size_t i = 0; i < 4; i++) {

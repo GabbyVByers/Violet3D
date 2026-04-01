@@ -5,7 +5,7 @@
 
 #include "Mesh.h"
 
-namespace Violet {
+namespace Vi {
 
 	Material::Material(const std::string& path, GLenum type) {
 		GLFWwindow* window = glfwGetCurrentContext();

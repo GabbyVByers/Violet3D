@@ -7,7 +7,7 @@
 #include <ranges>
 #include <numeric>
 
-namespace Violet {
+namespace Vi {
 
 	Mesh Shapes::arrow() {
 		return Mesh();

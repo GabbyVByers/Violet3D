@@ -7,7 +7,7 @@
 #include <ranges>
 #include <numeric>
 
-namespace Violet {
+namespace Vi {
 
     void Mesh::paint(const Color& color) {
         for (Vertex& v : vertices) {

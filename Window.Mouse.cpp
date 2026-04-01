@@ -5,7 +5,7 @@
 
 #include "Window.h"
 
-namespace Violet {
+namespace Vi {
 
 	Vec2d Mouse::position() const {
 		return pos;
