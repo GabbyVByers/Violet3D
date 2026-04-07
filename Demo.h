@@ -1,4 +1,8 @@
 
+/*
+	Demo.h
+*/
+
 #pragma once
 #include "Window.h"
 
@@ -13,7 +17,7 @@ namespace Vi {
 
 		Vi::Mesh sphere = Vi::Shapes::sphere(20);
 		sphere.paint(Vi::Color::white());
-		sphere.texture = Vi::Texture("textures/moon.png");
+		sphere.texture = Vi::Texture("textures/simple_earth.png");
 
 		while (window.is_open()) {
 			window.poll_events();

@@ -13,24 +13,8 @@ namespace Vi {
 	class Keyboard;
 	class Window;
 
-	class GlfwMouseEvent {
-	public:
-		int button, action, mods;
-	};
-
-	class GlfwScrollEvent {
-	public:
-		double xoffset, yoffset;
-	};
-
-	class GlfwKeyboardEvent {
-	public:
-		int key, scancode, action, mods;
-	};
-
 	class Mouse {
 	public:
-		Mouse() = default;
 		Vec2d position() const;
 		Vec2d velocity() const;
 		bool pressing(int button) const;
@@ -38,29 +22,31 @@ namespace Vi {
 		double scroll() const;
 	private:
 		friend Window;
+		struct GlfwMouseEvent { int button, action, mods; };
+		struct GlfwScrollEvent { double xoffset, yoffset; };
 		Vec2d pos = Vec2d();
 		Vec2d vel = Vec2d();
-		GLFWwindow* window_ptr = nullptr;
 		std::vector<GlfwMouseEvent> mouse_events;
 		std::vector<GlfwScrollEvent> scroll_events;
 		void reset();
 		void push_mouse_event(const GlfwMouseEvent& mouse_event);
 		void push_scroll_event(const GlfwScrollEvent& scroll_event);
+		Mouse() = default;
 		Mouse(const Mouse& other) = delete;
 		Mouse(Mouse&& other) noexcept = delete;
 	};
 
 	class Keyboard {
 	public:
-		Keyboard() = default;
 		bool pressed(int key, int edge) const;
 		bool pressing(int key) const;
 	private:
 		friend Window;
-		GLFWwindow* window_ptr = nullptr;
+		struct GlfwKeyboardEvent { int key, scancode, action, mods; };
 		std::vector<GlfwKeyboardEvent> keyboard_events;
 		void reset();
 		void push_key_event(const GlfwKeyboardEvent& key_event);
+		Keyboard() = default;
 		Keyboard(const Keyboard& other) = delete;
 		Keyboard(Keyboard&& other) noexcept = delete;
 	};
@@ -79,10 +65,6 @@ namespace Vi {
 		static Mouse& mouse();
 		static Keyboard& keyboard();
 	private:
-		inline static size_t instances = NULL;
-		inline static GLFWwindow* window_ptr = nullptr;
-		inline static Mouse internal_mouse = Mouse();
-		inline static Keyboard internal_keyboard = Keyboard();
 		static void callback_window_resize(GLFWwindow* ptr, int width, int height);
 		static void callback_keyboard(GLFWwindow* ptr, int key, int scancode, int action, int mods);
 		static void callback_mouse(GLFWwindow* ptr, int button, int action, int mods);

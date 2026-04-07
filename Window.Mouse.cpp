@@ -16,6 +16,7 @@ namespace Vi {
 	}
 
 	bool Mouse::pressing(int button) const {
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		return glfwGetMouseButton(window_ptr, button) == GLFW_PRESS;
 	}
 
@@ -39,6 +40,7 @@ namespace Vi {
 	}
 
 	void Mouse::reset() {
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		double x, y; glfwGetCursorPos(window_ptr, &x, &y);
 		Vec2d new_pos = { x, y };
 		vel = new_pos - pos;

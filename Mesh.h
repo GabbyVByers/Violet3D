@@ -34,17 +34,19 @@ namespace Vi {
 		Mat4 projection_matrix(const Vec2i& window_size) const;
 	};
 
+	class Window;
 	class Material {
 	public:
-		GLuint vao = NULL;
-		GLuint vbo = NULL;
-		GLuint shader = NULL;
-		GLenum primitive = NULL;
 		Material(const std::string& path, GLenum type);
 		~Material();
 		Material(Material&& other) noexcept;
 		Material& operator = (Material&& other) noexcept;
 	private:
+		friend Window;
+		GLuint vao = NULL;
+		GLuint vbo = NULL;
+		GLuint shader = NULL;
+		GLenum primitive = NULL;
 		Material(const Material& other) = delete;
 		Material& operator = (const Material& other) = delete;
 	};
@@ -59,12 +61,13 @@ namespace Vi {
 
 	class Texture {
 	public:
-		GLuint texture = NULL;
 		Texture(const std::string& path = "default_no_texture");
 		~Texture();
 		Texture(Texture&& other) noexcept;
 		Texture& operator = (Texture&& other) noexcept;
 	private:
+		friend Window;
+		GLuint texture = NULL;
 		Texture(const Texture& other) = delete;
 		Texture& operator = (const Texture& other) = delete;
 	};
@@ -88,4 +91,3 @@ namespace Vi {
 	};
 }
 
-  

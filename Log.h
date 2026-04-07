@@ -27,6 +27,7 @@ namespace Vi {
 		GLFW_INIT_FAIL,
 		GLFW_WINDOW_CREATE_FAIL,
 		GLAD_LOAD_FAIL,
+		GLFW_CONTEXT_ALREADY_EXISTS
 	};
 	
 	class Log {

@@ -8,7 +8,8 @@
 namespace Vi {
 
 	Window::Window(std::string title, int width, int height) {
-		Log::assert_concern(instances++ == NULL, WINDOW_SINGLETON_VIOLATED);
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
+		Log::assert_concern(window_ptr == nullptr, GLFW_CONTEXT_ALREADY_EXISTS);
 
 		GLuint status = glfwInit();
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -16,9 +17,10 @@ namespace Vi {
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		Log::assert_concern(status != NULL, GLFW_INIT_FAIL);
 
-		window_ptr = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+		GLFWwindow* temp_ptr = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+		glfwMakeContextCurrent(temp_ptr);
+		window_ptr = glfwGetCurrentContext();
 		Log::assert_concern(window_ptr != nullptr, GLFW_WINDOW_CREATE_FAIL);
-		glfwMakeContextCurrent(window_ptr);
 
 		status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		Log::assert_concern(status != NULL, GLAD_LOAD_FAIL);
@@ -45,15 +47,16 @@ namespace Vi {
 	}
 
 	Window::~Window() {
-		instances = NULL;
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		glfwDestroyWindow(window_ptr);
 		glfwTerminate();
 	}
 
 	Vec2i Window::size() {
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		int x, y; glfwGetFramebufferSize(window_ptr, &x, &y);
 		return { x, y };
 	}
@@ -63,21 +66,22 @@ namespace Vi {
 	}
 
 	bool Window::is_open() {
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		return !glfwWindowShouldClose(window_ptr);
 	}
 
 	void Window::poll_events() {
-		Window::mouse().reset();
-		Window::keyboard().reset();
+		Mouse& mouse = Window::mouse(); mouse.reset();
+		Keyboard& keyboard = Window::keyboard(); keyboard.reset();
 		glfwPollEvents();
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
 	}
 
 	void Window::clear(Color color) {
 		glClearColor(color.r, color.g, color.b, color.a);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
 	}
 
 	void Window::draw(const Mesh& mesh, Camera& camera) {
@@ -113,17 +117,18 @@ namespace Vi {
 	void Window::display() {
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		GLFWwindow* window_ptr = glfwGetCurrentContext();
 		glfwSwapBuffers(window_ptr);
 	}
 
 	Mouse& Window::mouse() {
-		internal_mouse.window_ptr = window_ptr;
-		return internal_mouse;
+		static Mouse mouse = Mouse();
+		return mouse;
 	}
 
 	Keyboard& Window::keyboard() {
-		internal_keyboard.window_ptr = window_ptr;
-		return internal_keyboard;
+		static Keyboard keyboard = Keyboard();
+		return keyboard;
 	}
 
 	void Window::callback_window_resize(GLFWwindow* ptr, int width, int height) {
@@ -131,30 +136,30 @@ namespace Vi {
 	}
 
 	void Window::callback_keyboard(GLFWwindow* ptr, int key, int scancode, int action, int mods) {
-		GlfwKeyboardEvent key_event = {
-			key,
-			scancode,
-			action,
-			mods
+		Keyboard::GlfwKeyboardEvent key_event = {
+			.key = key,
+			.scancode = scancode,
+			.action = action,
+			.mods = mods
 		};
 		Keyboard& keyboard = Window::keyboard();
 		keyboard.push_key_event(key_event);
 	}
 
 	void Window::callback_mouse(GLFWwindow* ptr, int button, int action, int mods) {
-		GlfwMouseEvent mouse_event = {
-			button,
-			action,
-			mods
+		Mouse::GlfwMouseEvent mouse_event = {
+			.button = button,
+			.action = action,
+			.mods = mods
 		};
 		Mouse& mouse = Window::mouse();
 		mouse.push_mouse_event(mouse_event);
 	}
 
 	void Window::callback_mousescroll(GLFWwindow* ptr, double xoffset, double yoffset) {
-		GlfwScrollEvent scroll_event{
-			xoffset,
-			yoffset
+		Mouse::GlfwScrollEvent scroll_event{
+			.xoffset = xoffset,
+			.yoffset = yoffset
 		};
 		Mouse& mouse = Window::mouse();
 		mouse.push_scroll_event(scroll_event);
