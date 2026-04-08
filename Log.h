@@ -34,7 +34,7 @@ namespace Vi {
 	public:
 		static void assert_concern(
 			bool failure_condition,
-			Concern concern,
+			Concern concern = GENERIC,
 			const char* info = nullptr
 		);
 	private:

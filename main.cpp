@@ -6,33 +6,12 @@
 #include "Window.h"
 #include "Demo.h"
 
-struct Planet {
-    double px = 0.0;
-    double py = 0.0;
-    double pz = 0.0;
-    double vx = 0.0;
-    double vy = 0.0;
-    double vz = 0.0;
-};
-
-
+#include "Map.h"
 
 int main() {
 	
-    std::vector<Planet> planets;
-
-    std::ifstream file = std::ifstream("planets.txt");
-    if (!file) {
-        std::cerr << "you forgor the file bozo\n";
-    }
-
-    std::stringstream sstream;
-    sstream << file.rdbuf();
-
-    std::string token;
-    while (sstream >> token) {
-        std::cout << token << std::endl;
-    }
+    Map::init_planets();
+    
 
     Vi::Window window = Vi::Window("Application", 1920, 1080);
 
