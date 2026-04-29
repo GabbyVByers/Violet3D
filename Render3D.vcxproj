@@ -206,6 +206,7 @@
     <None Include="default.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="JPL\planets_orbital.txt" />
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>

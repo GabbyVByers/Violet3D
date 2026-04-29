@@ -1,10 +1,9 @@
 
 
 BEGIN_HEADER
-	The Nine Planets and Major Moons
-	Positions & Velocities wrt The Sun
-	Units are [m] and [m/s]
-	JPL Horizons System
+	The Nine Planets and their Major Moons
+	All Units are [meters] (pos) or [meters/second] (vel) and WRT The Sun's Barycenter
+	Source: JPL Horizons System
 	Curated by Hand - April 6th 2026
 END_HEADER
 
@@ -83,7 +82,6 @@ BEGIN_MOONS
 			vx  8.470839620347563E+03
 			vy -2.926416525385574E+04
 			vz -1.182344079050246E+01
-	
 	SET_PARENT Mars
 		Deimos
 			px  1.975170745694488E+11
@@ -99,7 +97,6 @@ BEGIN_MOONS
 			vx  9.024895000515352E+03
 			vy  2.342365809331035E+04
 			vz -3.026095880220865E+02
-	
 	SET_PARENT Jupiter
 		Callisto
 			px -3.517560357754462E+11
@@ -129,7 +126,6 @@ BEGIN_MOONS
 			vx -4.265261666404372E+01
 			vy -1.802625364034393E+04
 			vz -5.164063981222711E+00
-
 	SET_PARENT Saturn
 		Dione
 			px  1.413275847242950E+12
@@ -180,7 +176,6 @@ BEGIN_MOONS
 			vx  1.953254714538246E+03
 			vy  1.361937959318996E+04
 			vz -2.512282430546939E+03
-
 	SET_PARENT Uranus
 		Ariel
 			px  1.428990273588405E+12
@@ -217,7 +212,6 @@ BEGIN_MOONS
 			vx -2.455385392735041E+03
 			vy  2.673441902522494E+03
 			vz  3.135629185226248E+03
-
 	SET_PARENT Neptune
 		Nereid
 			px  4.472124647928260E+12
@@ -233,7 +227,6 @@ BEGIN_MOONS
 			vx  3.466755132516535E+03
 			vy  7.608297844600864E+03
 			vz -1.225639046651946E+03
-
 	SET_PARENT Pluto
 		Charon
 			px  2.914957315887753E+12
@@ -242,6 +235,5 @@ BEGIN_MOONS
 			vx  4.679989949500877E+03
 			vy  1.673319225315367E+03
 			vz -1.716343262350361E+03
-
 END_MOONS
 

@@ -180,6 +180,9 @@
     <Text Include="todo.txt">
       <Filter>Render3D\Miscellaneous</Filter>
     </Text>
+    <Text Include="JPL\planets_orbital.txt">
+      <Filter>Space</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="test_image.png">
